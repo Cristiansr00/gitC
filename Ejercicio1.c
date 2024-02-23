@@ -1,3 +1,8 @@
+/*1) Implementar la función int esPrimo(int n) que dado un entero n devuelve
+1 si es primo y 0 en otro caso. Implementa un método main que pida al usuario un número,
+le pase como argumento ese número a la función esPrimo,
+y muestre por pantalla una frase indicado si el número es o no primo.*/
+
 #include <stdio.h>
 #include <math.h>
 
