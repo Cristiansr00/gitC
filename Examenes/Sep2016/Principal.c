@@ -42,6 +42,14 @@ int main () {
 	EscribirFichero("Salida.bin",&plan);
 	EjecutarProcesos(plan);
 
+	LProc lista;
+	Crear(&lista);
+	EjecutarProcesos(lista);
+
+	LeerFichero("Salida.bin", &lista);
+
+	EjecutarProcesos(lista);
+
 	return 0;
 
 }

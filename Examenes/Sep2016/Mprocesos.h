@@ -30,4 +30,8 @@ void EliminarProceso(int id, LProc *lista);
 void EscribirFichero (char * nomf, LProc *lista);
 
 
+void LeerFichero (char * nomf, LProc *lista);
+
+
+
 #endif /* MPROCESOS_H_ */

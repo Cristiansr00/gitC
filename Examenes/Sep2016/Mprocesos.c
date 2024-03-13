@@ -76,18 +76,38 @@ void EscribirFichero (char * nomf, LProc *lista){
     if((*lista) == NULL){
         printf("La lista esta vacia");
     }else {
-        LProc aux, sig;
-        aux = (*lista)->sig;
-
+        LProc curr, sig;
+        curr = (*lista)->sig;
+        sig = curr->sig;
+        (*lista)->sig = NULL;
+        int n = 0;
         //vaciamos la lista y liberamos todo el espacio creado
-        while(aux != NULL){
-            fwrite(&(aux->pid),sizeof(aux->pid),1,fd);
-            sig = aux->sig;
-            free(aux);
-            aux = sig;
+        while(curr != NULL){
+            n = fwrite(&(curr->pid),sizeof(curr->pid),1,fd);
+            free(curr);
+            curr = sig;
+            if(sig != NULL){
+                sig = sig->sig;
+            }
         }   
         fclose(fd);
         (*lista) = NULL;
     }
+}
 
+void LeerFichero(char * nomf, LProc *lista){
+
+    FILE * fd = fopen(nomf,"rb");
+    if(fd == NULL){
+        perror("El fichero no se ha podido abrir");
+        exit(1);
+    }
+
+    int aux = 0;
+
+    while(!feof(fd) && fread(&aux, sizeof(aux), 1, fd)){
+        AnadirProceso(lista, aux);
+    }
+
+    fclose(fd);
 }
