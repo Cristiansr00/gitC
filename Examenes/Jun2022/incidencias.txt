@@ -1,0 +1,3 @@
+0;Puerta 002 no cierra correctamente;-1
+0;Puerta 004 no cierra correctamente;5
+9;Puerta 904 no cierra correctamente;100
